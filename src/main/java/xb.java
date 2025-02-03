@@ -9,7 +9,6 @@ public class xb {
         String name = s.nextLine();
         System.out.print(name);
         System.out.println(", what can I do for you?");
-
         String taskName;
 
         while (true) {

@@ -39,9 +39,9 @@ public class Task {
     public void printTasks() {
         System.out.print(this.getTaskId() + ". ");
         if (this.getIsDone()) {
-            System.out.print("[X]");
+            System.out.print("[X]"); //task done, print with X
         } else {
-            System.out.print("[ ]");
+            System.out.print("[ ]"); //task not done print without X
         }
         System.out.println(this.getTaskName());
     }
