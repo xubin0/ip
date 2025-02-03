@@ -6,8 +6,14 @@ public class xb {
         System.out.println("What is your name?");
         String name = s.nextLine();
         System.out.print(name);
-        System.out.println(", what can I do for you?");
+        System.out.println(", what can I do for you?(type bye to exit)");
+        String echo;
+        do{
+            echo = s.nextLine();
+            System.out.println(echo);
+        }while(!(echo.equals("bye")));
 
+        System.out.println(echo);
         System.out.println("Bye. Hope to see you again soon!");
         s.close();
 
