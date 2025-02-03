@@ -2,29 +2,49 @@ import java.util.Scanner;
 
 public class xb {
     public static void main(String[] args) {
-        String[] list = new String[100];
+        TaskList taskList = new TaskList();
         Scanner s = new Scanner(System.in);
         System.out.println("Hello, I am xb!");
         System.out.println("What is your name?");
         String name = s.nextLine();
         System.out.print(name);
-        System.out.println(", what can I do for you?(\"bye\" to exit, \"list\" to show list)");
-        String echo;
-        int itemCount = 0;
+        System.out.println(", what can I do for you?");
+
+        String taskName;
+
         while (true) {
-            echo = s.nextLine();
-            if (echo.equals("bye")) {
-                break;
-            }
-            if (echo.equals("list")) {
-                for (int i = 0; i < itemCount; i++) {
-                    System.out.println((i + 1) + ". " + list[i]);
+            taskName = s.nextLine().trim();
+            String[] parts = taskName.split("\\s+", 2);
+            if (parts.length == 2 && IntegerChecker.isInteger(parts[1])) {
+                switch (parts[0]) {
+                case "mark":
+                    taskList.markTaskAsDone(Integer.parseInt(parts[1]));
+                    break;
+                case "unmark":
+                    taskList.markTaskAsUndone(Integer.parseInt(parts[1]));
+                    break;
+                case "rename":
+                    String newTaskName = s.nextLine().trim();
+                    taskList.renameTask(Integer.parseInt(parts[1]), newTaskName);
+                default:
+                    break;
                 }
-                continue;
+            } else {
+                if (taskName.equals("bye")) {
+                    break;
+                }
+                if (taskName.equals("list")) {
+                    System.out.println("These are the tasks:");
+                    taskList.printList();
+                    System.out.println("Input task name to continue adding task");
+                    System.out.println("Use \"mark\" or \"unmark\" followed by task number to mark or unmark a task");
+                    System.out.println("Use \"rename\" followed by task number to rename a task");
+                    continue;
+                }
+
+                System.out.println("added: " + taskName);
+                taskList.addTask(taskName);
             }
-            System.out.println("added: " + echo);
-            list[itemCount] = echo;
-            itemCount++;
         }
 
         System.out.println("Bye. Hope to see you again soon!");
