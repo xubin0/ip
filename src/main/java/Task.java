@@ -46,6 +46,37 @@ public class Task {
         this.isDone = isDone;
     }
 
+    public void printTask() {
+        System.out.print(this.getTaskId() + ". ");
+        printTaskType();
+        printIsDone();
+        System.out.print(this.getTaskName());
+    }
+
+    public void printIsDone() {
+        if (this.isDone) {
+            System.out.print("[X]"); //task done, print with X
+        } else {
+            System.out.print("[ ]"); //task not done print without X
+        }
+    }
+
+    public  void printTaskType() {
+        switch (this.getTaskType()) {
+        case TASK:
+            System.out.print("[ ]");
+            break;
+        case EVENT:
+            System.out.print("[E]");
+            break;
+        case DEADLINE:
+            System.out.print("[D]");
+            break;
+        case TODO:
+            System.out.print("[T]");
+            break;
+        }
+    }
 
 
 }

@@ -1,42 +1,80 @@
 public class TaskList {
-    private static int taskCount;
+    private int taskCount;
     private Task[] tasks;
-    private int listSize;
+    private final int listSize;
 
     public TaskList(int listSize) {
         taskCount = 0;
         tasks = new Task[listSize];
+        this.listSize = listSize;
     }
 
-    public void addTask(String taskName) {
+
+    public void addTask(Task task) {
         if (taskCount == listSize) {
             System.out.println("max task count reached. Task not added");
         } else {
             taskCount++;
-            tasks[taskCount - 1] = new Task(taskCount, taskName);
+            tasks[taskCount - 1] = task;
+            System.out.println("task added:");
+            task.printTask();
+            System.out.println();
+            System.out.println("Now you have " + taskCount + " tasks in the list.");
         }
     }
 
-    public void addTask(String taskName, boolean isDone) {
+    public void addTask(Todo todo) {
         if (taskCount == listSize) {
             System.out.println("max task count reached. Task not added");
         } else {
-            taskCount++;
-            tasks[taskCount - 1] = new Task(taskCount, taskName, isDone);
+            tasks[taskCount++] = todo;
+            System.out.println("task added:");
+            todo.printTask();
+            System.out.println();
+            System.out.println("Now you have " + taskCount + " tasks in the list.");
         }
+    }
+
+    public void addTask(Deadline deadline) {
+        if (taskCount == listSize) {
+            System.out.println("max task count reached. Task not added");
+        } else {
+            tasks[taskCount++] = deadline;
+            System.out.println("task added:");
+            deadline.printTask();
+            System.out.println();
+            System.out.println("Now you have " + taskCount + " tasks in the list.");
+        }
+    }
+
+    public void addTask(Event event) {
+        if (taskCount == listSize) {
+            System.out.println("max task count reached. Task not added");
+        } else {
+            tasks[taskCount++] = event;
+            System.out.println("task added:");
+            event.printTask();
+            System.out.println();
+            System.out.println("Now you have " + taskCount + " tasks in the list.");
+        }
+    }
+
+    public int getTaskCount() {
+        return taskCount;
     }
 
 
     public void printList() {
         for (int i = 0; i < taskCount; i++) {
-            TaskPrinter.printTasks(tasks[i]);
+            tasks[i].printTask();
+            System.out.println();
         }
 
     }
 
     public void markTaskAsDone(int taskId) {
-        if (taskId < taskCount) { //check if taskId is valid
-            if (tasks[taskId].getIsDone()) { //check if task is already unmarked
+        if (taskId <= taskCount) { //check if taskId is valid
+            if (tasks[taskId-1].getIsDone()) { //check if task is already unmarked
                 System.out.println(tasks[taskId].getTaskName() + " was already marked as done");
             } else {
                 tasks[taskId - 1].setIsDone(true); //valid and not done, mark as done
@@ -48,7 +86,7 @@ public class TaskList {
     }
 
     public void markTaskAsUndone(int taskId) {
-        if (taskId < taskCount) { //check if taskId is valid
+        if (taskId <= taskCount) { //check if taskId is valid
             if (!tasks[taskId - 1].getIsDone()) { //check if task is already unmarked
                 System.out.println(tasks[taskId - 1].getTaskName() + " was already unmarked");
             } else {
