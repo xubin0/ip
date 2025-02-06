@@ -1,8 +1,12 @@
 import java.util.Scanner;
 
+
 public class xb {
+    public static final int MAX_LIST_SIZE = 100;
+
+
     public static void main(String[] args) {
-        TaskList taskList = new TaskList();
+        TaskList taskList = new TaskList(MAX_LIST_SIZE);
         Scanner s = new Scanner(System.in);
         System.out.println("Hello, I am xb!");
         System.out.println("What is your name?");

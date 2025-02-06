@@ -1,15 +1,15 @@
 public class TaskList {
-    public static final int MAX_TASK_SIZE = 100;
     private static int taskCount;
     private Task[] tasks;
+    private int listSize;
 
-    public TaskList() {
+    public TaskList(int listSize) {
         taskCount = 0;
-        tasks = new Task[MAX_TASK_SIZE];
+        tasks = new Task[listSize];
     }
 
     public void addTask(String taskName) {
-        if (taskCount == MAX_TASK_SIZE) {
+        if (taskCount == listSize) {
             System.out.println("max task count reached. Task not added");
         } else {
             taskCount++;
@@ -18,7 +18,7 @@ public class TaskList {
     }
 
     public void addTask(String taskName, boolean isDone) {
-        if (taskCount == MAX_TASK_SIZE) {
+        if (taskCount == listSize) {
             System.out.println("max task count reached. Task not added");
         } else {
             taskCount++;
@@ -29,7 +29,7 @@ public class TaskList {
 
     public void printList() {
         for (int i = 0; i < taskCount; i++) {
-            tasks[i].printTasks();
+            TaskPrinter.printTasks(tasks[i]);
         }
 
     }
