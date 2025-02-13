@@ -1,3 +1,5 @@
+package util;
+
 public class IntegerChecker {
     public static boolean isInteger(String input) {
         try {
