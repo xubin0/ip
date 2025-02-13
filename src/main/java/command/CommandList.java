@@ -59,7 +59,11 @@ public enum CommandList {
     LIST {
         @Override
         public void execute(String[] parts, TaskList taskList) {
-            taskList.printList();
+            if(taskList.getTaskCount() > 0) {
+                taskList.printList();
+                return;
+            }
+            System.out.println("nothing to do yet");
         }
     },
     BYE {
