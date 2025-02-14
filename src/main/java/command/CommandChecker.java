@@ -7,16 +7,6 @@ public class CommandChecker {
         this.parts = parts;
     }
 
-    public boolean isValidLength() {
-        try {
-            int i =1/parts.length;
-            return true;
-        } catch (ArithmeticException e) {
-            printInvalidLengthMessage();
-            return false;
-        }
-    }
-
     public boolean isValidCommand() {
         try {
             CommandList.valueOf(parts[0].toUpperCase());
@@ -38,8 +28,5 @@ public class CommandChecker {
             System.out.println(c.toString());
         }
     }
-    public void printInvalidLengthMessage(){
-        System.out.println("Command Cannot be empty;");
-    };
 
 }

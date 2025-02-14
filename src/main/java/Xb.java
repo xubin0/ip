@@ -25,7 +25,7 @@ public class Xb {
             command = s.nextLine().trim();
             CommandParser cp = new CommandParser(command);
             CommandChecker cc= new CommandChecker(cp.getParts());
-            if(cc.isValidLength()&& cc.isValidCommand()) {
+            if(cc.isValidCommand()) {
                 run = c.runCommand(cp.getParts());
             }
         }

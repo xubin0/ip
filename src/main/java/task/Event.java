@@ -1,5 +1,7 @@
 package task;
 
+import command.CommandList;
+
 public class Event extends Task {
     private String eventStart;
     private String eventEnd;
@@ -8,7 +10,7 @@ public class Event extends Task {
         super(taskId, taskName, done);
         this.eventStart = evementStart;
         this.eventEnd = eventEnd;
-        setTaskType(TaskType.EVENT);
+        setTaskType(CommandList.EVENT);
     }
 
     @Override

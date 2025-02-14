@@ -1,12 +1,14 @@
 package task;
 
+import command.CommandList;
+
 public class Deadline extends Task {
     private String deadline;
 
     public Deadline(int taskId, String taskName, boolean done, String deadline) {
         super(taskId, taskName, done);
         this.deadline = deadline;
-        setTaskType(TaskType.DEADLINE);
+        setTaskType(CommandList.DEADLINE);
     }
 
     public String getDeadline() {

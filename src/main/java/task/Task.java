@@ -1,21 +1,21 @@
 package task;
 
+import command.CommandList;
+
 public class Task {
     private final int taskId;
-    private TaskType taskType;
+    private CommandList taskType;
     private String taskName;
     private boolean isDone;
 
     public Task(int taskId, String taskName, boolean done) {
         this.taskId = taskId;
-        taskType = TaskType.TASK;
         this.taskName = taskName;
         this.isDone = done;
     }
 
     public Task(int taskId, String taskName) {
         this.taskId = taskId;
-        taskType = TaskType.TASK;
         this.taskName = taskName;
         this.isDone = false;
     }
@@ -24,11 +24,11 @@ public class Task {
         return taskId;
     }
 
-    public TaskType getTaskType() {
+    public CommandList getTaskType() {
         return taskType;
     }
 
-    public void setTaskType(TaskType taskType) {
+    public void setTaskType(CommandList taskType) {
         this.taskType = taskType;
     }
 
@@ -65,9 +65,6 @@ public class Task {
 
     public  void printTaskType() {
         switch (this.getTaskType()) {
-        case TASK:
-            System.out.print("[ ]");
-            break;
         case EVENT:
             System.out.print("[E]");
             break;
