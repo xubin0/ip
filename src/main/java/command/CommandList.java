@@ -39,7 +39,7 @@ public enum CommandList {
         public void execute(String[] parts, TaskList taskList) {
             try {
                 if (parts.length == 2) {
-                    Todo todo = new Todo(taskList.getTaskCount() + 1, parts[1], false);
+                    Todo todo = new Todo(parts[1], false);
                     taskList.addTask(todo);
                 } else {
                     throw XbException.invalidTodoCommand();
@@ -58,7 +58,7 @@ public enum CommandList {
                     String[] deadlineParts = parts[1].split("/by", 2);
                     String taskName = deadlineParts[0].trim();
                     String deadline = deadlineParts[1].trim();
-                    Deadline dl = new Deadline(taskList.getTaskCount() + 1, taskName, false, deadline);
+                    Deadline dl = new Deadline(taskName, false, deadline);
                     taskList.addTask(dl);
                 } else {
                     throw XbException.invalidDeadlineCommand();
@@ -78,7 +78,7 @@ public enum CommandList {
                     String taskName = eventParts[0].trim();
                     String from = eventParts[1].trim();
                     String to = eventParts[2].trim();
-                    Event event = new Event(taskList.getTaskCount() + 1, taskName, false, from, to);
+                    Event event = new Event(taskName, false, from, to);
                     taskList.addTask(event);
                 } else {
                     throw XbException.invalidEventCommand();

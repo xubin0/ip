@@ -8,8 +8,13 @@ public class TaskList {
     public TaskList() {
         tasks = new ArrayList<>();
     }
+    public TaskList(ArrayList<Task> tasks) {
+        this.tasks = tasks;
+    }
 
-
+    public ArrayList<Task> getTasks() {
+        return tasks;
+    }
 
     public void addTask(Todo todo) {
         tasks.add(todo);

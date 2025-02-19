@@ -5,8 +5,8 @@ import command.CommandList;
 public class Deadline extends Task {
     private String deadline;
 
-    public Deadline(int taskId, String taskName, boolean done, String deadline) {
-        super(taskId, taskName, done);
+    public Deadline(String taskName, boolean done, String deadline) {
+        super(taskName, done);
         this.deadline = deadline;
         setTaskType(CommandList.DEADLINE);
     }
@@ -22,6 +22,11 @@ public class Deadline extends Task {
     @Override
     public void printDue() {
         System.out.println(" (by: " + deadline + ")");
+    }
+
+    @Override
+    public String toFileFormat() {
+        return "D," + getIsDone() + "," + getTaskName() + "," + getDeadline() +"\n";
     }
 
 }

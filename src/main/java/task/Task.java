@@ -2,17 +2,17 @@ package task;
 
 import command.CommandList;
 
-public class Task {
+public abstract class Task {
     private CommandList taskType;
     private String taskName;
     private boolean isDone;
 
-    public Task(int taskId, String taskName, boolean done) {
+    public Task(String taskName, boolean done) {
         this.taskName = taskName;
         this.isDone = done;
     }
 
-    public Task(int taskId, String taskName) {
+    public Task(String taskName) {
         this.taskName = taskName;
         this.isDone = false;
     }
@@ -73,6 +73,7 @@ public class Task {
     public void printDue(){
         System.out.println();
     }
+    public abstract String toFileFormat();
 
 
 }

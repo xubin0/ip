@@ -1,15 +1,20 @@
 import command.*;
-
+import java.io.File;
+import java.io.IOException;
 import task.TaskList;
 import java.util.Scanner;
 
+import static util.FileHandler.loadTasks;
+import static util.FileHandler.saveTasks;
+
 
 public class Xb {
-    public static final int MAX_LIST_SIZE = 100;
-
+    private static final String DIRECTORY_PATH = "./data";
+    private static final String FILE_PATH = "./data/Xb.txt";
 
     public static void main(String[] args) {
-        TaskList taskList = new TaskList();
+        createFileIfNotExists(FILE_PATH);
+        TaskList taskList = loadTasks();
         Scanner s = new Scanner(System.in);
 
         System.out.println("Hello, I am xb!");
@@ -29,7 +34,35 @@ public class Xb {
                 run = c.runCommand(cp.getParts());
             }
         }
+        saveTasks(taskList);
     }
 
+
+
+    public static void createFileIfNotExists(String filePath) {
+        File file = new File(filePath);
+        File directory = new File(DIRECTORY_PATH);
+
+        try {
+            if (!directory.exists()) {
+                boolean dirCreated = directory.mkdirs();
+                if (dirCreated) {
+                    System.out.println("Created directory: " + DIRECTORY_PATH);
+                }
+            }
+
+            if (!file.exists()) {
+                boolean fileCreated = file.createNewFile(); // Creates file if missing
+                if (fileCreated) {
+                    System.out.println("Created file: " + filePath);
+                }
+            } else {
+                System.out.println("File already exists: " + filePath);
+            }
+        } catch (IOException e) {
+            System.out.println("Error creating file: " + e.getMessage());
+        }
+    }
 }
+
 
