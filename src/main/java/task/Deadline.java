@@ -20,9 +20,8 @@ public class Deadline extends Task {
     }
 
     @Override
-    public void printTask() {
-        super.printTask();
-        System.out.print(" (by: " + deadline + ")");
+    public void printDue() {
+        System.out.println(" (by: " + deadline + ")");
     }
 
 }

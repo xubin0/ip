@@ -14,10 +14,8 @@ public class Event extends Task {
     }
 
     @Override
-    public void printTask() {
-        super.printTask();
-        System.out.print( " (from: " + eventStart + " to: " + eventEnd + ")");
+    public void printDue() {
+        System.out.println( " (from: " + eventStart + " to: " + eventEnd + ")");
     }
-
 
 }

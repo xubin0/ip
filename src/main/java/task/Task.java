@@ -3,26 +3,20 @@ package task;
 import command.CommandList;
 
 public class Task {
-    private final int taskId;
     private CommandList taskType;
     private String taskName;
     private boolean isDone;
 
     public Task(int taskId, String taskName, boolean done) {
-        this.taskId = taskId;
         this.taskName = taskName;
         this.isDone = done;
     }
 
     public Task(int taskId, String taskName) {
-        this.taskId = taskId;
         this.taskName = taskName;
         this.isDone = false;
     }
 
-    public int getTaskId() {
-        return taskId;
-    }
 
     public CommandList getTaskType() {
         return taskType;
@@ -48,12 +42,7 @@ public class Task {
         this.isDone = isDone;
     }
 
-    public void printTask() {
-        System.out.print(this.getTaskId() + ". ");
-        printTaskType();
-        printIsDone();
-        System.out.print(this.getTaskName());
-    }
+
 
     public void printIsDone() {
         if (this.isDone) {
@@ -75,6 +64,14 @@ public class Task {
             System.out.print("[T]");
             break;
         }
+    }
+    public void printTask(){
+        printTaskType();
+        printIsDone();
+        System.out.print(" "+taskName);
+    }
+    public void printDue(){
+        System.out.println();
     }
 
 
