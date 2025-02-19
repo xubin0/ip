@@ -6,9 +6,9 @@ public class Event extends Task {
     private String eventStart;
     private String eventEnd;
 
-    public Event(int taskId, String taskName, boolean done, String evementStart, String eventEnd) {
+    public Event(int taskId, String taskName, boolean done, String eventStart, String eventEnd) {
         super(taskId, taskName, done);
-        this.eventStart = evementStart;
+        this.eventStart = eventStart;
         this.eventEnd = eventEnd;
         setTaskType(CommandList.EVENT);
     }

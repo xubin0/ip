@@ -9,7 +9,7 @@ public class Xb {
 
 
     public static void main(String[] args) {
-        TaskList taskList = new TaskList(MAX_LIST_SIZE);
+        TaskList taskList = new TaskList();
         Scanner s = new Scanner(System.in);
 
         System.out.println("Hello, I am xb!");
