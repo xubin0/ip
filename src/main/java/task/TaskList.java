@@ -10,19 +10,14 @@ public class TaskList {
     }
 
 
-    public void addTask(Task task) {
-        tasks.add(task);
-        System.out.println("task added:");
-        task.printTask();
-        System.out.println("Now you have " + tasks.toArray().length + " tasks in the list.");
-
-    }
 
     public void addTask(Todo todo) {
         tasks.add(todo);
         System.out.println("task added:");
         todo.printTask();
+        todo.printDue();
         System.out.println("Now you have " + tasks.toArray().length + " tasks in the list.");
+
     }
 
 
@@ -75,7 +70,11 @@ public class TaskList {
 
     public void deleteTask(int taskId) {
         if (taskId <= tasks.toArray().length && taskId > 0) {
+            Task task = tasks.get(taskId - 1);
             tasks.remove(taskId - 1);
+            System.out.println("deleted task: ");
+            task.printTask();
+            System.out.println();
         } else {
             System.out.println("no such task");
         }

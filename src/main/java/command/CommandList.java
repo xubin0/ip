@@ -110,8 +110,7 @@ public enum CommandList {
         @Override
         public void execute(String[] parts, TaskList taskList) {
             if (parts.length == 2 && IntegerChecker.isInteger(parts[1])) {
-                taskList.deleteTask(Integer.parseInt(parts[1]));
-                System.out.println("deleted task " + parts[1]);
+               taskList.deleteTask(Integer.parseInt(parts[1]));
             }
         }
     };
