@@ -4,8 +4,8 @@ import java.io.IOException;
 import task.TaskList;
 import java.util.Scanner;
 
-import static util.FileHandler.loadTasks;
-import static util.FileHandler.saveTasks;
+import static FileHandler.FileLoader.loadTasks;
+import static FileHandler.FileSaver.saveTasks;
 
 public class Xb {
     private static final String DIRECTORY_PATH = "./data";
