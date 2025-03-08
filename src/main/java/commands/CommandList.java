@@ -1,5 +1,8 @@
 package commands;
-
+/**
+ * An enumeration that contains all valid commands for the application.
+ * Each command in this enum implements a method to print its usage and description.
+ */
 public enum CommandList {
     MARK {
         @Override
@@ -48,7 +51,20 @@ public enum CommandList {
         public void printCommand() {
             System.out.println("DELETE: Deletes a task. Usage: DELETE <task_number>");
         }
+    },
+    FIND {
+        @Override
+        public void printCommand() {
+            System.out.println("FIND: Finds a task based on the keyword given. Usage: DELETE <keyword>");
+        }
+    },
+    RENAME {
+        @Override
+        public void printCommand() {
+            System.out.println("RENAME: Renames a task based on the task number give . Usage: DELETE <task_number>");
+        }
     };
+
 
     public abstract void printCommand();
 }

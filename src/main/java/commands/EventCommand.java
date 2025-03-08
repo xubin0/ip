@@ -3,8 +3,18 @@ package commands;
 import exception.XbException;
 import task.Event;
 import task.TaskList;
-
+/**
+ * Represents the "EVENT" command that creates a task with event timings.
+ * The command expects the description of the event and "/from" and "/to" tags for start and end times.
+ */
 public class EventCommand implements Command {
+    /**
+     * Executes the "EVENT" command by parsing the task description, start time, and end time,
+     * and adding the event task to the task list.
+     *
+     * @param parts The command parts containing the task description and event timings.
+     * @param taskList The task list where the new event task will be added.
+     */
     @Override
     public void execute(String parts, TaskList taskList) {
         try {

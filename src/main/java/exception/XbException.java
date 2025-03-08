@@ -1,5 +1,8 @@
 package exception;
-
+/**
+ * Custom exception class for handling various invalid command inputs in the application.
+ * This class provides specific methods for each type of invalid command that may be thrown during user input.
+ */
 public class XbException extends Exception {
     public XbException(String message) {
         super(message);
@@ -28,6 +31,9 @@ public class XbException extends Exception {
     }
     public static XbException invalidFindCommand() {
         return new XbException("Invalid Find command, please specify Keyword to Find tasks.");
+    }
+    public static XbException invalidRenameCommand() {
+        return new XbException("Invalid event command, please key command in the format: rename <task number> <new Name>.");
     }
 
 }
