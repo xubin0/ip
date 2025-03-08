@@ -1,9 +1,9 @@
 package task;
 
-import command.CommandList;
+import task.TaskType;
 
 public abstract class Task {
-    private CommandList taskType;
+    private TaskType taskType;
     private String taskName;
     private boolean isDone;
 
@@ -18,11 +18,11 @@ public abstract class Task {
     }
 
 
-    public CommandList getTaskType() {
+    public TaskType getTaskType() {
         return taskType;
     }
 
-    public void setTaskType(CommandList taskType) {
+    public void setTaskType(TaskType taskType) {
         this.taskType = taskType;
     }
 

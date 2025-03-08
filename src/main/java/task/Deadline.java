@@ -1,6 +1,6 @@
 package task;
 
-import command.CommandList;
+import task.TaskType;
 
 public class Deadline extends Task {
     private String deadline;
@@ -8,7 +8,7 @@ public class Deadline extends Task {
     public Deadline(String taskName, boolean done, String deadline) {
         super(taskName, done);
         this.deadline = deadline;
-        setTaskType(CommandList.DEADLINE);
+        setTaskType(TaskType.DEADLINE);
     }
 
     public String getDeadline() {

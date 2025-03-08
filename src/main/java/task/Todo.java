@@ -1,11 +1,11 @@
 package task;
 
-import command.CommandList;
+import task.TaskType;
 
 public class Todo extends Task {
     public Todo(String taskName, boolean done) {
         super(taskName, done);
-        super.setTaskType(CommandList.TODO);
+        super.setTaskType(TaskType.TODO);
     }
 
     @Override

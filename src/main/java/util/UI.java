@@ -1,8 +1,7 @@
 package util;
 
-import command.CommandChecker;
-import command.CommandHandler;
-import command.CommandParser;
+import commandHandler.CommandHandler;
+import commandHandler.CommandParser;
 import task.TaskList;
 
 import java.util.Scanner;
@@ -19,16 +18,13 @@ public class UI {
         System.out.print(name);
         System.out.println(", what can I do for you?");
         String command;
-        CommandHandler c = new CommandHandler(taskList);
 
         boolean run = true;
         while (run) {
             command = s.nextLine().trim();
             CommandParser cp = new CommandParser(command);
-            CommandChecker cc = new CommandChecker(cp.getParts());
-            if (cc.isValidCommand()) {
-                run = c.runCommand(cp.getParts());
-            }
+            CommandHandler c = new CommandHandler(taskList, cp.getParts());
+                run = c.runCommand();
 
         }
         saveTasks(taskList);

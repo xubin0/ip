@@ -2,11 +2,9 @@
 import task.TaskList;
 import util.UI;
 
-
 import FileHandler.FileCreator;
 
 import static FileHandler.FileLoader.loadTasks;
-import static FileHandler.FileSaver.saveTasks;
 
 public class Xb {
     private static final String DIRECTORY_PATH = "./data";
