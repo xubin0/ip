@@ -26,5 +26,8 @@ public class XbException extends Exception {
     public static XbException invalidDeleteCommand() {
         return new XbException("Invalid delete command, please specify which task to delete with an integer.");
     }
+    public static XbException invalidFindCommand() {
+        return new XbException("Invalid Find command, please specify Keyword to Find tasks.");
+    }
 
 }
