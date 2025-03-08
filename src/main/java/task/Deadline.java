@@ -1,6 +1,6 @@
 package task;
 
-import task.TaskType;
+import util.DateTimeFormatTool;
 
 public class Deadline extends Task {
     private String deadline;
@@ -21,7 +21,12 @@ public class Deadline extends Task {
 
     @Override
     public void printDue() {
-        System.out.println(" (by: " + deadline + ")");
+        if(DateTimeFormatTool.isValidDateTimeFormat(deadline)) {
+            System.out.println(" (by: " + DateTimeFormatTool.parseDateTime(deadline) + ")");
+
+        }else {
+            System.out.println(" (by: " + deadline + ")");
+        }
     }
 
     @Override
