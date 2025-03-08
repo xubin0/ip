@@ -1,12 +1,20 @@
 package task;
 
-import task.TaskType;
-
+/**
+ * Abstract class representing a task.
+ * This class defines the common properties and methods for all types of tasks (e.g., Todo, Deadline, Event).
+ */
 public abstract class Task {
     private TaskType taskType;
     private String taskName;
     private boolean isDone;
 
+    /**
+     * Constructs a Task with the given task name and completion status.
+     *
+     * @param taskName The name of the task.
+     * @param done     The status of the task (completed or not).
+     */
     public Task(String taskName, boolean done) {
         this.taskName = taskName;
         this.isDone = done;
@@ -43,7 +51,9 @@ public abstract class Task {
     }
 
 
-
+    /**
+     * Prints the task's completion status.
+     */
     public void printIsDone() {
         if (this.isDone) {
             System.out.print("[X]"); //task done, print with X
@@ -52,7 +62,10 @@ public abstract class Task {
         }
     }
 
-    public  void printTaskType() {
+    /**
+     * Prints the task's type (e.g., Todo, Deadline, Event).
+     */
+    public void printTaskType() {
         switch (this.getTaskType()) {
         case EVENT:
             System.out.print("[E]");
@@ -65,14 +78,25 @@ public abstract class Task {
             break;
         }
     }
-    public void printTask(){
+    /**
+     * Prints the task details.
+     */
+    public void printTask() {
         printTaskType();
         printIsDone();
-        System.out.print(" "+taskName);
+        System.out.print(" " + taskName);
     }
-    public void printDue(){
+    /**
+     * Prints the due date or duration of the task (if applicable).
+     */
+    public void printDue() {
         System.out.println();
     }
+    /**
+     * Returns a string representation of the task for file storage.
+     *
+     * @return A string representing the task for file storage.
+     */
     public abstract String toFileFormat();
 
 

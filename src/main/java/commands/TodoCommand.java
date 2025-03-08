@@ -3,9 +3,18 @@ package commands;
 import exception.XbException;
 import task.TaskList;
 import task.Todo;
-
+/**
+ * Represents the "TODO" command that creates a new todo task.
+ * The command expects a description for the todo task.
+ */
 public class TodoCommand implements Command {
-
+    /**
+     * Executes the "TODO" command by creating a new todo task with the provided description.
+     * The new todo task is added to the task list.
+     *
+     * @param parts The description of the todo task.
+     * @param taskList The task list where the new todo task will be added.
+     */
     @Override
     public void execute(String parts, TaskList taskList) {
         try {

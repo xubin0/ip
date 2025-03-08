@@ -8,13 +8,21 @@ import java.util.Scanner;
 import java.io.File;
 import java.io.FileWriter;
 import java.util.ArrayList;
-
+/**
+ * Utility class for loading tasks from a file into a TaskList.
+ * This class reads data from a file, parses it, and creates tasks that are added to the task list.
+ */
 public class FileLoader {
     private static final String FILE_PATH = "./data/Xb.txt";
 
 
 
-
+    /**
+     * Loads tasks from a file into a TaskList.
+     * It parses the file content to recreate the tasks and add them to the list.
+     *
+     * @return A TaskList containing all the tasks loaded from the file.
+     */
     public static TaskList loadTasks() {
         ArrayList<Task> tasks = new ArrayList<>();
         File f = new File(FILE_PATH);
