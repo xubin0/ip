@@ -1,6 +1,7 @@
 package task;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public class TaskList {
     private ArrayList<Task> tasks;
@@ -8,12 +9,28 @@ public class TaskList {
     public TaskList() {
         tasks = new ArrayList<>();
     }
+
     public TaskList(ArrayList<Task> tasks) {
         this.tasks = tasks;
     }
 
     public ArrayList<Task> getTasks() {
         return tasks;
+    }
+
+
+    public TaskList getTaskListWithKeyWord(String keyword) {
+        TaskList tasksWithKeyWord = new TaskList(new ArrayList<>(tasks));
+
+        Iterator<Task> iterator = tasksWithKeyWord.tasks.iterator();
+        while (iterator.hasNext()) {
+            Task task = iterator.next();
+            if (!task.getTaskName().toLowerCase().contains(keyword.toLowerCase())) {
+                iterator.remove();
+            }
+        }
+
+        return tasksWithKeyWord;
     }
 
     public void addTask(Todo todo) {

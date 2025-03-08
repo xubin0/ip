@@ -23,12 +23,14 @@ public class CommandFactory {
             return new ByeCommand();
         case "DELETE":
             return new DeleteCommand();
+        case "FIND":
+            return new FindCommand();
         default:
             System.out.println("Sorry, Xb does not know what \"" + commandString + "\" means");
             System.out.println("Valid commands are:");
             CommandListPrinter.printCommands();
 
         }
-            return null;
+        return null;
     }
 }
