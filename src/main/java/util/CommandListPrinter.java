@@ -11,7 +11,7 @@ public class CommandListPrinter {
      * Prints all available commands by calling the `printCommand` method for each command in the CommandList enum.
      */
     public static void printCommands() {
-        System.out.println("Available commands:");
+        System.out.println("Valid Commands:");
 
         // Loop through each enum constant in CommandList and call printCommand()
         for (CommandList command : CommandList.values()) {

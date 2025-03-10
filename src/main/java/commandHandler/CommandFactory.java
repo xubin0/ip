@@ -47,7 +47,6 @@ public class CommandFactory {
             return new RenameCommand();
         default:
             System.out.println("Sorry, Xb does not know what \"" + commandString + "\" means");
-            System.out.println("Valid commands are:");
             CommandListPrinter.printCommands();
 
         }

@@ -158,6 +158,7 @@ public class TaskList {
             if (tasks.get(taskId - 1).getTaskName().equals(newTaskName)) { //check if name is same
                 System.out.println("please use a new name"); //if no change in name then print error
             } else {
+                System.out.println(tasks.get(taskId - 1).getTaskName() + " renamed to " + newTaskName);
                 tasks.get(taskId - 1).setTaskName(newTaskName);
             }
         }else{
