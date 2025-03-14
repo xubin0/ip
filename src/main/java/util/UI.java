@@ -24,7 +24,9 @@ public class UI {
         System.out.println("What is your name?");
         String name = s.nextLine();
         System.out.print(name);
-        System.out.println(", what can I do for you?");
+        System.out.println(", Here are the available Commands:");
+        CommandListPrinter.printCommands();
+        System.out.println("What can I do for you today?");
         String command;
 
         boolean run = true;
